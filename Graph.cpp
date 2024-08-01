@@ -184,6 +184,18 @@ void Graph::info() const {
   std::cout << std::endl;
 }
 
+void Graph::setStartNode(std::shared_ptr<Node> searchStartNode) {
+  this->searchStartNode = searchStartNode;
+}
+
+void Graph::setEndNode(std::shared_ptr<Node> searchEndNode) {
+  this->searchEndNode = searchEndNode;
+}
+
+std::shared_ptr<Node> Graph::getStartNode() const { return searchStartNode; }
+
+std::shared_ptr<Node> Graph::getEndNode() const { return searchEndNode; }
+
 bool Graph::hasCycle() const {
   std::unordered_set<int> visited;
   for (const auto &node : nodes) {

@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include <SDL2/SDL_mouse.h>
 
 constexpr auto FONT = "Fonts/JetBrainsMono-Bold.ttf";
 constexpr unsigned int APP_WIDTH = 1920;
@@ -71,6 +72,15 @@ int main() {
           } else {
             graph.addNode(clickPoint);
           }
+        }
+        if (e.button.button == SDL_BUTTON_RIGHT) {
+          SDL_Point clickPoint = {e.button.x, e.button.y};
+          auto clickedNode = graph.getNodeAt(clickPoint);
+          if (graph.getStartNode() != nullptr) {
+            graph.setEndNode(clickedNode);
+            break;
+          }
+          graph.setStartNode(clickedNode);
         }
       } else if (e.type == SDL_MOUSEBUTTONUP) {
         if (e.button.button == SDL_BUTTON_LEFT && dragStart) {

@@ -49,6 +49,10 @@ public:
   std::shared_ptr<Node> getNodeAt(SDL_Point point) const;
   void clear();
   void info() const;
+  void setStartNode(std::shared_ptr<Node> searchStartNode);
+  void setEndNode(std::shared_ptr<Node> searchStartNode);
+  std::shared_ptr<Node> getStartNode() const;
+  std::shared_ptr<Node> getEndNode() const;
   int shortestPath(const std::shared_ptr<Node> &start,
                    const std::shared_ptr<Node> &end,
                    std::vector<std::shared_ptr<Node>> &path) const;
