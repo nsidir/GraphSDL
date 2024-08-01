@@ -2,5 +2,5 @@ emcc main.cpp Graph.cpp -o index.html -s USE_SDL=2 -s WASM=1 --preload-file Font
 
 # For reformatting the output files of emcc
 js-beautify index.html -o temp_index.html && mv temp_index.html index.html
-js-beautify graphs.js -o temp_graphs.js && mv temp_graphs.js graphs.js
+js-beautify index.js -o temp_index.js && mv temp_index.js index.js
 
